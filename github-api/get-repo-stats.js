@@ -20,6 +20,24 @@ export default async function getRepoStats(repo) {
       repo,
     }
   );
+  
+  const a2 = await new Promise( r => {
+    setTimeout(async () => {
+      const response = await octokit.request(
+        "GET /repos/{owner}/{repo}/stats/commit_activity",
+        {
+          owner,
+          repo,
+        }
+      );
+      
+      r(response)
+    }, 22200)
+  })
+  
+  console.log('repo', repo)
+  console.log('matches', JSON.stringify(activityData.data) === JSON.stringify(a2.data))
+  console.log('\n')
 
   const contributorsData = await octokit.request(
     "GET /repos/{owner}/{repo}/contributors",
@@ -28,8 +46,8 @@ export default async function getRepoStats(repo) {
       repo,
     }
   );
-
-
+  
+  // console.log('acd', activityData)
   return {
     activity: activityData.data,
     contributors: contributorsData.data,
