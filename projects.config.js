@@ -17,16 +17,16 @@ const projectsConfig = {
         },
       ],
     },
-    {
-      parentGit: "transport",
-      title: "Transport backend",
-      url: "https://transport.ekaterinburg.io/",
-      icon: "/logos/transport.svg",
-      cover: "/covers/cover-transport.png",
-      git: "transport-api",
-      vercel: "",
-      links: [],
-    },
+//    {
+//      parentGit: "transport",
+//      title: "Transport backend",
+//      url: "https://transport.ekaterinburg.io/",
+//      icon: "/logos/transport.svg",
+//      cover: "/covers/cover-transport.png",
+//      git: "transport-api",
+//      vercel: "",
+//      links: [],
+//    },
 
     // Map
     {

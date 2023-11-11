@@ -32,12 +32,18 @@ export default async function getRepoStats(repo) {
       );
       
       r(response)
-    }, 22200)
+    }, 2100)
   })
   
-  console.log('repo', repo)
-  console.log('matches', JSON.stringify(activityData.data) === JSON.stringify(a2.data))
-  console.log('\n')
+//  console.log('repo', repo)
+//  console.log('matches', JSON.stringify(activityData.data) === JSON.stringify(a2.data))
+//  console.log('\n')
+
+  const matches = JSON.stringify(activityData.data) === JSON.stringify(a2.data)
+  if (!matches){
+//    console.log('repo', repo)
+    console.log(`repo ${repo} doesn't match`)
+  }
 
   const contributorsData = await octokit.request(
     "GET /repos/{owner}/{repo}/contributors",
